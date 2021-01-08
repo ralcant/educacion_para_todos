@@ -13,6 +13,7 @@ class Math extends React.Component{
         this.navBarRef = React.createRef();
         this.state = {
             navBarSticky: false,
+            showArrowMessage: false,
         }
     }
     componentDidMount(){
@@ -55,6 +56,11 @@ class Math extends React.Component{
     scroll = (ref)=>{ //from https://stackoverflow.com/questions/44375093/handling-scroll-animation-in-react
         ref.current.scrollIntoView({behavior: "smooth"})
     }
+    showArrowMessage = (val)=>{
+        this.setState({
+            showArrowMessage: val,
+        })
+    }
     render(){
         return(
             <div>
@@ -70,14 +76,24 @@ class Math extends React.Component{
                         <br/>
                         Donec dapibus nibh et varius ornare. Mauris posuere massa vitae dolor fringilla suscipit. Praesent consequat pretium felis quis egestas. Aliquam at mi at justo maximus tempor vitae nec elit. Sed maximus nisl sed interdum dignissim. Praesent ut metus ut mi tempor iaculis. Nunc in ipsum sed turpis sodales blandit. Cras dignissim purus vitae pulvinar mollis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
                     </p>
-                    <button className="u-xxxLargeFont u-transparentBg" onClick={()=>{this.scroll(this.videosRef)}}>&#x21d3;</button>
+                    <button 
+                    className="u-xxxLargeFont u-transparentBg" 
+                    onMouseEnter={()=>this.showArrowMessage(true)}
+                    onMouseLeave={()=>this.showArrowMessage(false)}
+                    onClick={()=>{this.scroll(this.videosRef)}}>
+                        &#x21d3;
+                    </button>
+                    {
+                        this.state.showArrowMessage &&
+                        <i className="u-xLargeFont u-fancyFont">Ver videos</i>
+                    }
 
                 </div>
                 <hr/>
                 <div  ref={this.videosRef} className="u-fullScreen all-box-container center">
                     <br/>
                     <h1> Videos:</h1>
-                    <button className="u-xxxLargeFont u-transparentBg" onClick={()=>{this.scroll(this.mainPageRef)}}>&#x21d1;</button>
+                    {/* <button className="u-xxxLargeFont u-transparentBg" onClick={()=>{this.scroll(this.mainPageRef)}}>&#x21d1;</button> */}
                     <div className="all">
                         <VideoSection
                         elements = {this.getAllVideos()}
