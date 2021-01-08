@@ -27,6 +27,7 @@
   --grey: #f7f7f7;
   --white: #fff;
   --black: #000;
+  --yellow: #f6fa04;
 
   --xs: 4px;
   --s: 8px;
@@ -37,7 +38,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: 'Yeon Sung', cursive;
   font-weight: 300;
 }
 
@@ -137,4 +139,12 @@ form {
 .u-transparentBg{
   background-color: rgba(0,0,0,0); 
   border: none;
+}
+
+.u-transparentBg:active{
+  /* background-color: green; */
+  /* border: 0 none green ; */
+  /* box-sizing: none; */
+  /* border-left-width: 0; */
+  /* border */
 }

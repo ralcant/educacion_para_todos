@@ -25,7 +25,7 @@ body{
     border: var(--xs) solid var(--black);
     border-radius: var(--m);
     background-color: var(--white);
-
+    cursor: pointer;
 }
 .one-flex{
     flex: 1;
@@ -69,5 +69,9 @@ body{
 .section{
     transition: opacity 2s;
     /* background-color: blueviolet; */
+}
+
+.boxFavorite{
+    border-color:var(--yellow);
 }
 
